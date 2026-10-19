@@ -437,6 +437,22 @@ a {
     font-size: 10px
 }
 
+.match-stream {
+    display: block;
+    width: fit-content;
+    margin-top: 8px;
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .04em
+}
+
+.match-stream:hover,
+.match-stream:focus {
+    color: var(--white);
+    text-decoration: underline
+}
+
 .match-status {
     text-align: right;
     font-size: 10px;
@@ -448,6 +464,10 @@ a {
 
 .match-status.completed {
     color: var(--muted)
+}
+
+.match-status.live {
+    color: #37dd8d
 }
 
 .match-score {
