@@ -40,11 +40,11 @@ const matches = [
     videoId: "xkpZ6kk0BBA"
   },
   {
-    date: "—",
-    month: "TBD",
+    date: "19",
+    month: "OCT",
     tournament: "EEE Mega Clash — Tier 1 Final",
-    startsAt: "",
-    endsAt: "",
+    startsAt: "2026-10-19T18:30:00+06:00",
+    endsAt: "2026-10-19T20:00:00+06:00",
     time: "See livestream",
     livestream: "https://www.youtube.com/live/ayoca0bk-8w",
     videoId: "ayoca0bk-8w"
