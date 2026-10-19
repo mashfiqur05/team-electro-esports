@@ -28,6 +28,12 @@ body {
     line-height: 1.6
 }
 
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden
+}
+
 a {
     color: inherit;
     text-decoration: none
@@ -170,6 +176,7 @@ a {
 .hero-noise {
     position: absolute;
     inset: 0;
+    pointer-events: none;
     opacity: .08;
     background-image: linear-gradient(120deg, transparent 0 48%, #fff 49%, transparent 50%), linear-gradient(30deg, transparent 0 49%, #168bff 50%, transparent 51%);
     background-size: 110px 110px;
@@ -178,6 +185,7 @@ a {
 
 .hero-lightning {
     position: absolute;
+    pointer-events: none;
     right: -4%;
     top: 7%;
     width: 59%;
@@ -1547,6 +1555,124 @@ footer {
     }
 }
 
+@media(max-width:600px) {
+    .page-width,
+    .nav-shell {
+        width: calc(100% - 32px)
+    }
+
+    .brand {
+        gap: 7px;
+        font-size: 12px
+    }
+
+    .brand-logo {
+        height: 28px
+    }
+
+    .hero {
+        min-height: 790px
+    }
+
+    .hero-content {
+        padding-top: 78px;
+        align-self: flex-start
+    }
+
+    .hero h1 {
+        font-size: clamp(62px, 18vw, 92px)
+    }
+
+    .hero-copy {
+        max-width: 310px;
+        font-size: 13px
+    }
+
+    .hero-actions {
+        flex-wrap: wrap;
+        gap: 14px
+    }
+
+    .hero-visual {
+        top: auto;
+        right: 16px;
+        bottom: 32px;
+        width: calc(100% - 32px);
+        height: auto;
+        aspect-ratio: 16 / 9
+    }
+
+    .hero-side-note {
+        display: none
+    }
+
+    .match-toolbar {
+        justify-content: flex-start;
+        gap: 7px
+    }
+
+    .filter {
+        padding: 9px 10px;
+        font-size: 9px
+    }
+
+    .match-card {
+        grid-template-columns: 62px minmax(0, 1fr);
+    }
+
+    .match-status {
+        grid-column: 2;
+        text-align: left
+    }
+
+    .community-cta-panel {
+        gap: 22px
+    }
+
+    .community-socials {
+        width: 100%;
+        max-width: none;
+        justify-content: flex-start
+    }
+
+    .community-socials a {
+        flex: 1 1 calc(50% - 5px);
+        text-align: center;
+        min-width: 0;
+        padding-inline: 8px
+    }
+
+    .footer-links {
+        gap: 30px
+    }
+}
+
+@media(max-width:360px) {
+    .hero {
+        min-height: 760px
+    }
+
+    .hero h1 {
+        font-size: 58px
+    }
+
+    .hero-visual {
+        bottom: 24px
+    }
+
+    .roster-grid {
+        gap: 8px
+    }
+
+    .player-details h3 {
+        font-size: 22px
+        }
+
+    .community-socials a {
+        font-size: 9px
+    }
+}
+
 @media(prefers-reduced-motion:reduce) {
     html {
         scroll-behavior: auto
@@ -1561,7 +1687,8 @@ footer {
 .hero-visual {
     display: flex;
     position: absolute;
-    z-index: 1;
+    z-index: 3;
+    pointer-events: auto;
     right: 8%; /* Page-e space rakhara jonno */
     top: 160px;
     width: 520px; /* Video horizontal width */
@@ -1579,10 +1706,13 @@ footer {
 
 /* iframe cover settings */
 .hero-visual iframe {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: 100%;
     border: none;
     display: block;
+    pointer-events: auto
 }
 
 .hero-champion-img {
@@ -1765,10 +1895,12 @@ footer {
 
 @media(max-width:800px) {
     .hero-visual {
-        right: -18%;
-        top: 225px;
-        width: 275px;
-        height: 310px;
+        right: 20px;
+        top: auto;
+        bottom: 32px;
+        width: min(520px, calc(100% - 40px));
+        height: auto;
+        aspect-ratio: 16 / 9;
         opacity: .72
     }
 
@@ -1808,5 +1940,53 @@ footer {
         position: absolute;
         right: 18px;
         top: 22px
+    }
+}
+
+@media(max-width:600px) {
+    .hero-visual {
+        right: 16px;
+        top: auto;
+        bottom: 32px;
+        width: calc(100% - 32px);
+        height: auto;
+        aspect-ratio: 16 / 9;
+        opacity: 1
+    }
+}
+
+@media(max-width:767px) {
+    .hero {
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 104px 0 40px
+    }
+
+    .hero-content {
+        width: 100%;
+        padding-top: 0
+    }
+
+    .hero-visual {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        margin-top: 38px;
+        opacity: 1;
+        flex: 0 0 auto
+    }
+
+    .hero-video-iframe {
+        width: 100%;
+        height: 100%
+    }
+
+    .hero-side-note {
+        display: none
     }
 }
