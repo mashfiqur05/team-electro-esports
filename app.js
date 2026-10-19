@@ -44,7 +44,7 @@ const players = [
     image: "assets/safin.png",
     bio: "Active Team Electro player listed on Liquipedia.",
     winnings: "Not published",
-    social: { facebook: "", youtube: "https://www.youtube.com/@SAFINX7", instagram: "" },
+    social: { facebook: "https://www.facebook.com/profile.php?id=61595545616626", youtube: "https://www.youtube.com/@SAFINX7", instagram: "" },
     achievements: []
   },
   {
@@ -101,6 +101,34 @@ const players = [
     bio: "Active Team Electro player.",
     winnings: "Not published",
     social: { facebook: "https://www.facebook.com/mh.chaudhary.641283", youtube: "https://www.youtube.com/@XIOT-m9m", instagram: "" },
+    achievements: []
+  },
+  {
+    id: "coach",
+    nickname: "COACH",
+    name: "Name not published",
+    role: "COACH",
+    nationality: "Bangladesh",
+    status: "Not published",
+    joinDate: "Not published",
+    image: "assets/sezler.png",
+    bio: "Team Electro coach details have not been published.",
+    winnings: "Not published",
+    social: { facebook: "https://www.facebook.com/Coach.Selzer", youtube: "https://www.youtube.com/@coach_selzer", instagram: "https://www.instagram.com/coach_selzer/" },
+    achievements: []
+  },
+  {
+    id: "syed-khalid",
+    nickname: "SYED KHALID",
+    name: "Syed Khalid",
+    role: "MANAGER",
+    nationality: "Bangladesh",
+    status: "Active",
+    joinDate: "2020-09-23",
+    image: "assets/team-electro-logo.png",
+    bio: "Team Electro manager listed on Liquipedia.",
+    winnings: "Not applicable",
+    social: { facebook: "https://www.facebook.com/syedkhalid17/", youtube: "", instagram: "" },
     achievements: []
   }
 ];
@@ -195,13 +223,8 @@ function renderSocialLink(url, label, platform) {
     Instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" class="social-icon-fill"/></svg>'
   };
   const icon = icons[platform];
-  const fallbackUrls = {
-    Facebook: "https://www.facebook.com/",
-    YouTube: "https://www.youtube.com/",
-    Instagram: "https://www.instagram.com/"
-  };
-  const profileUrl = url || fallbackUrls[platform];
-  return `<a class="${url ? "" : "social-unavailable"}" href="${profileUrl}" target="_blank" rel="noreferrer" aria-label="${platform} profile">${icon}</a>`;
+  if (!url) return "";
+  return `<a href="${url}" target="_blank" rel="noreferrer" aria-label="${platform} profile">${icon}</a>`;
 }
 
 function renderProfile(player) {
