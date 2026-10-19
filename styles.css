@@ -329,20 +329,58 @@ a {
 
 .ticker-track {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    min-width: 900px;
+    width: max-content;
     color: #567494;
     font-family: var(--display);
     font-weight: 700;
     letter-spacing: .13em;
-    font-size: 18px
+    font-size: 18px;
+    will-change: transform;
+    animation: ticker-scroll 28s linear infinite;
+    animation-play-state: running;
+    backface-visibility: hidden
+}
+
+.ticker-group {
+    display: flex;
+    align-items: center;
+    flex: 0 0 max-content;
+    width: max-content;
+    gap: 44px;
+    padding-right: 44px
 }
 
 .ticker i {
     font-size: 11px;
     color: var(--cyan);
     font-style: normal
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translate3d(-33.333333%, 0, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+@media(max-width:600px) {
+    .ticker {
+        padding: 12px 0
+    }
+
+    .ticker-track {
+        font-size: 15px;
+        letter-spacing: .1em;
+        animation-duration: 22s
+    }
+
+    .ticker-group {
+        gap: 28px;
+        padding-right: 28px
+    }
 }
 .section {
     padding: 120px 0
