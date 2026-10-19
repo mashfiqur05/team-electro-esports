@@ -478,10 +478,34 @@ a {
 }
 
 .roster-section,
-.community-section,
-.connect-section {
-    background: var(--deep);
+.owner-section,
+.community-section {
+    position: relative;
+    z-index: 1;
+    background: transparent;
     padding: 120px 0
+}
+
+.owner-section {
+    padding-top: 0
+}
+
+.owner-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px);
+    gap: 14px;
+    justify-content: center
+}
+
+.owner-card {
+    min-height: 300px
+}
+
+.owner-meta {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: .1em;
+    margin-top: 7px
 }
 
 .light .section-intro {
@@ -499,7 +523,15 @@ a {
     min-height: 300px;
     position: relative;
     overflow: hidden;
-    border: 1px solid #ffffff0d
+    border: 1px solid #ffffff0d;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease
+}
+
+.player-card:hover,
+.player-card:focus-within {
+    transform: translateY(-6px);
+    border-color: #57d8ff88;
+    box-shadow: 0 10px 28px #02081299, 0 0 18px #57d8ff2b
 }
 
 .player-card:after {
@@ -559,12 +591,20 @@ a {
     object-fit: contain;
     border: 2px solid var(--cyan);
     border-radius: 50%;
+    overflow: hidden;
     padding: 12px;
     left: 50%;
     top: 37%;
     transform: translate(-50%, -50%);
     background: #071225cc;
-    box-shadow: 0 0 22px #00d9ff55
+    box-shadow: 0 0 22px #00d9ff55;
+    transition: transform .25s ease, box-shadow .25s ease
+}
+
+.player-card:hover .player-art img,
+.player-card:focus-within .player-art img {
+    transform: translate(-50%, -50%) scale(1.06);
+    box-shadow: 0 0 30px #00d9ff99
 }
 
 .player-socials {
@@ -718,7 +758,12 @@ body.modal-open {
 .profile-avatar img {
     width: 138px;
     height: 138px;
-    object-fit: contain
+    object-fit: contain;
+    border: 2px solid var(--cyan);
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 10px;
+    background: #071225cc
 }
 
 .profile-identity h2 {
@@ -1008,14 +1053,62 @@ body.modal-open {
     gap: 14px
 }
 
+.partners-heading {
+    margin: 0 auto 42px;
+    max-width: 700px;
+    text-align: center
+}
+
+.partners-heading .eyebrow {
+    margin-bottom: 14px
+}
+
+.partners-heading h2 {
+    font: 800 clamp(45px, 7vw, 88px)/.88 var(--display);
+    margin: 0
+}
+
+.partners-heading h2 em {
+    color: var(--cyan);
+    font-style: normal
+}
+
+.partners-heading > p:last-child {
+    color: var(--muted);
+    margin: 17px 0 0
+}
+
 .sponsor-card {
+    --accent: var(--cyan);
+    --border: #57d8ff33;
+    --tint: #57d8ff0d;
     display: flex;
     align-items: center;
     gap: 18px;
     min-height: 150px;
     padding: 25px;
-    border: 1px solid var(--line);
-    background: var(--surface)
+    border: 1px solid var(--border);
+    background: rgba(18, 18, 18, .8);
+    transition: border-color .25s, box-shadow .25s, background .25s
+}
+
+.sponsor-card:hover,
+.sponsor-card:focus-within {
+    border-color: var(--accent);
+    background: linear-gradient(135deg, var(--tint), rgba(18, 18, 18, .8));
+    box-shadow: 0 0 15px var(--border), inset 0 0 26px var(--tint)
+}
+
+.sponsor-nubia {
+    --accent: var(--cyan);
+    --border: #57d8ff33;
+    --tint: #57d8ff0d
+}
+
+.sponsor-setu {
+    --accent: var(--blue);
+    --border: #168bff33;
+    --tint: #168bff0d
 }
 
 .sponsor-mark {
@@ -1023,14 +1116,21 @@ body.modal-open {
     place-items: center;
     width: 72px;
     height: 72px;
-    border: 1px solid var(--cyan);
+    border: 1px solid var(--accent);
     border-radius: 50%;
-    color: var(--cyan);
+    color: var(--accent);
     font: 700 42px var(--display)
 }
 
+.sponsor-mark img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    border-radius: 50%
+}
+
 .sponsor-label {
-    color: var(--cyan);
+    color: var(--accent);
     font-size: 9px;
     font-weight: 800;
     letter-spacing: .14em;
@@ -1043,38 +1143,74 @@ body.modal-open {
     margin: 0
 }
 
-.connect-section {
-    background: var(--navy);
-    padding-top: 0
+.community-cta {
+    position: relative;
+    z-index: 1;
+    padding: 0 0 120px
 }
 
-.connect-panel {
+.community-cta-panel {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 30px;
     border-top: 1px solid var(--line);
-    padding-top: 75px
+    padding-top: 70px
 }
 
-.connect-panel h2 {
+.community-cta-panel h2 {
     font: 800 clamp(42px, 6vw, 76px)/.9 var(--display);
     margin: 0
 }
 
-.connect-panel h2 em {
+.community-cta-panel h2 em {
     color: var(--cyan);
     font-style: normal
 }
 
-.connect-panel p:not(.eyebrow) {
+.community-cta-panel p:not(.eyebrow) {
     color: var(--muted);
-    max-width: 460px;
+    max-width: 500px;
     margin: 18px 0 0
 }
 
-.connect-button {
-    flex-shrink: 0
+.community-socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    max-width: 430px;
+    margin-left: auto
+}
+
+.community-socials a {
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 11px 14px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: .2s
+}
+
+.community-socials a span {
+    color: var(--cyan);
+    font-size: 14px;
+    margin-left: 7px
+}
+
+.community-socials a:hover,
+.community-socials a:focus {
+    border-color: var(--cyan);
+    color: var(--white);
+    box-shadow: 0 0 14px #57d8ff33
+}
+
+main,
+footer {
+    position: relative;
+    z-index: 1
 }
 
 .empty-state {
@@ -1115,6 +1251,12 @@ footer {
     color: var(--muted);
     font-size: 13px;
     margin-top: 25px
+}
+
+.footer-brand-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain
 }
 
 .footer-links {
@@ -1278,8 +1420,8 @@ footer {
 
     .section,
     .roster-section,
-    .community-section,
-    .connect-section {
+    .owner-section,
+    .community-section {
         padding: 80px 0
     }
 
@@ -1287,10 +1429,19 @@ footer {
         grid-template-columns: 1fr
     }
 
-    .connect-panel {
+    .community-cta {
+        padding-bottom: 80px
+    }
+
+    .community-cta-panel {
         align-items: flex-start;
         flex-direction: column;
         padding-top: 55px
+    }
+
+    .community-socials {
+        justify-content: flex-start;
+        margin-left: 0
     }
 
     .section-heading {
@@ -1584,7 +1735,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: -1; /* Hero section-er pichone thakbe */
+    z-index: 0;
     pointer-events: none;
     overflow: hidden;
 }
@@ -1596,7 +1747,7 @@ footer {
     object-fit: contain;
     opacity: 0.05; /*opacity*/
     filter: drop-shadow(0 0 60px rgba(0, 217, 255, 0.4));
-    animation: float-logo 8s ease-in-out infinite alternate;
+    animation: float-logo 6s ease-in-out infinite alternate;
 }
 
 /* Floating animation */

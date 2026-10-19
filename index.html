@@ -27,8 +27,8 @@
             <button class="menu-toggle" aria-expanded="false"
                 aria-controls="site-nav"><span></span><span></span><span></span><em>Menu</em></button>
             <div id="site-nav" class="site-nav">
-                <a href="#matches">Matches</a><a href="#roster">Roster</a><a                 href="#achievements">Achievements</a><a href="#sponsors">Sponsors</a><a
-                href="#connect">Stay connected</a>
+                <a href="#matches">Matches</a><a href="#roster">Roster</a><a href="#owner">Owner</a><a
+                href="#achievements">Achievements</a><a href="#sponsors">Sponsors</a>
                 <a class="nav-cta" href="#community">Join the community <span>↗</span></a>
             </div>
         </nav>
@@ -101,6 +101,37 @@
     </div>
 </section>
 
+<section class="owner-section" id="owner">
+    <div class="page-width">
+        <div class="section-heading light">
+            <div>
+                <p class="eyebrow">THE ORGANIZATION</p>
+                <h2>THE <em>OWNER.</em></h2>
+            </div>
+        </div>
+        <div class="owner-grid">
+            <article class="player-card owner-card">
+                <div class="player-art">
+                    <img src="assets/nahian.png" alt="Team Electro owner profile placeholder">
+                </div>
+                <div class="player-details">
+                    <span class="player-role">OWNER</span>
+                    <h3>NAHIAN OPI</h3>
+                    <div class="player-socials" aria-label="Nahian Opi social links">
+                        <a href="https://www.facebook.com/nahian.opi.90" target="_blank" rel="noreferrer"
+                            aria-label="Nahian Opi on Facebook">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M14 8h3V4h-3c-3.3 0-5 1.9-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9c0-.7.3-1 1-1Z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <span class="owner-meta">BANGLADESH · ACTIVE</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
 <div class="profile-modal" id="profile-modal" role="dialog" aria-modal="true"
     aria-labelledby="profile-modal-title" hidden>
     <div class="profile-modal-backdrop" data-close-profile></div>
@@ -124,19 +155,17 @@
 
 <section class="community-section" id="sponsors">
     <div class="page-width">
-        <div class="section-heading light">
-            <div>
-                <p class="eyebrow">POWERED BY</p>
-                <h2>OUR <em>SPONSORS.</em></h2>
-            </div>
-            <p class="section-intro">The partners supporting Team Electro and the Bangladeshi Free Fire community.</p>
+        <div class="partners-heading">
+            <p class="eyebrow">POWERED BY THE COMMUNITY</p>
+            <h2>🤝 PARTNERS <em>&amp; SPONSORS.</em></h2>
+            <p>The brands powering Team Electro's next drop.</p>
         </div>
         <div class="sponsors-grid">
-            <article class="sponsor-card">
-                <span class="sponsor-mark">N</span>
-                <div><p class="sponsor-label">Official sponsor</p><h3>Nubia</h3></div>
+            <article class="sponsor-card sponsor-nubia">
+                <span class="sponsor-mark"><img src="assets/nubia.jpg" alt="Nubia logo"></span>
+                <div><p class="sponsor-label">Official sponsor</p><h3>Nubia Bangladesh</h3></div>
             </article>
-            <article class="sponsor-card">
+            <article class="sponsor-card sponsor-setu">
                 <span class="sponsor-mark">S</span>
                 <div><p class="sponsor-label">Official sponsor</p><h3>Setu OFC</h3></div>
             </article>
@@ -144,42 +173,53 @@
     </div>
 </section>
 
-<section class="connect-section" id="connect">
-    <div class="page-width connect-panel">
-        <div>
-            <p class="eyebrow">STAY CONNECTED</p>
-            <h2>FOLLOW THE <em>SQUAD.</em></h2>
-            <p>Follow the official Team Electro handle for announcements, match updates, and community news.</p>
+<section class="community-cta" id="community">
+    <div class="page-width">
+        <div class="community-cta-panel">
+            <div>
+                <p class="eyebrow">OFFICIAL COMMUNITY</p>
+                <h2>JOIN THE <em>SQUAD.</em></h2>
+                <p>Connect with Team Electro supporters, get the latest updates, and share the energy with the
+                    community.</p>
+            </div>
+            <div class="community-socials" aria-label="Official Team Electro social handles">
+                <a href="https://www.facebook.com/Electro.STZX" target="_blank"
+                    rel="noreferrer">Facebook <span>↗</span></a>
+                <a href="https://www.instagram.com/team.electroesports/" target="_blank"
+                    rel="noreferrer">Instagram <span>↗</span></a>
+                <a href="https://www.youtube.com/channel/UC78hqUIFnzQxosPirPz6wIg" target="_blank"
+                    rel="noreferrer">YouTube <span>↗</span></a>
+                <a href="https://www.facebook.com/groups/682109794976974" target="_blank"
+                    rel="noreferrer">Community group <span>↗</span></a>
+            </div>
         </div>
-        <a class="button button-primary connect-button" href="https://www.facebook.com/Electro.STZX"
-            target="_blank" rel="noreferrer">
-            Official Facebook <span>↗</span>
-        </a>
     </div>
 </section>
+
 </main>
 
-<footer id="community">
+<footer>
     <div class="page-width footer-top">
-        <div><a class="brand footer-brand" href="#top"><span class="brand-mark"
-                    aria-hidden="true"><i></i><i></i><i></i></span><span>TEAM <b>ELECTRO</b></span></a>
-            <p class="footer-tagline">A fan-built signal for the Bangladeshi<br />Free Fire community.</p>
+        <div><a class="brand footer-brand" href="#top"><img src="assets/team-electro-logo.png"
+                    alt="Team Electro logo" class="footer-brand-logo"><span>TEAM <b>ELECTRO</b></span></a>
+            <p class="footer-tagline">Built by a fan, for the fans.<br />Archiving every single milestone and epic moment of Team Electro's journey.</p>
         </div>
         <div class="footer-links">
             <div>
-                <p class="footer-label">Explore</p><a href="#matches">Match center</a><a href="#roster">Roster</a><a
+                <p class="footer-label">Explore</p><a href="#matches">Match schedule</a><a href="#roster">Roster</a><a href="#owner">Owner</a><a
                     href="#achievements">Achievements</a>
             </div>
             <div>
-                <p class="footer-label">Connect</p><a href="https://liquipedia.net/freefire/Team_Electro"
-                    target="_blank" rel="noreferrer">Liquipedia ↗</a><a
+                <p class="footer-label">Connect</p><a
                     href="https://www.facebook.com/Electro.STZX" target="_blank" rel="noreferrer">Official Facebook ↗</a><a
                     href="#sponsors">Sponsors</a>
             </div>
         </div>
     </div>
-    <div class="page-width footer-bottom"><span>© 2024 Team Electro Fan Hub</span><span>Not affiliated with or
-            endorsed by Team Electro.</span><a href="#top">Back to top ↑</a></div>
+    <div class="page-width footer-bottom">
+        <!-- <span>© 2024 Team Electro Fan Hub</span> -->
+        <span>Not affiliated with or endorsed by Team Electro.</span><a href="#top">Back to top ↑</a>
+    </div>
 </footer>
 <script src="app.js?v=3"></script>
 
