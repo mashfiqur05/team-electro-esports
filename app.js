@@ -173,6 +173,14 @@ const matchList = document.querySelector("#matches-list");
 const filters = document.querySelectorAll(".filter");
 const profileModal = document.querySelector("#profile-modal");
 const profileModalContent = document.querySelector("#profile-modal-content");
+let profileHistoryOpen = false;
+
+function renderResponsiveImage(source, alt, sizes = "(max-width: 600px) 50vw, 280px") {
+  const webpSource = source.replace(/\.(png|jpe?g)$/i, ".webp");
+  const base = webpSource.replace(/\.webp$/i, "");
+  const srcset = `${base}-400.webp 400w, ${base}-800.webp 800w, ${webpSource} 2000w`;
+  return `<picture><source srcset="${srcset}" sizes="${sizes}" type="image/webp"><img src="${source}" alt="${alt}" loading="lazy" decoding="async" width="2000" height="2000"></picture>`;
+}
 
 function renderMatches(filter = "all") {
   const visible = matches.filter(match => filter === "all" || match.status === filter);
@@ -202,7 +210,7 @@ function renderRoster() {
   }
   target.innerHTML = players.map(player => `
     <article class="player-card">
-      <div class="player-art"><img src="${player.image}" alt="${player.nickname} avatar"></div>
+      <div class="player-art">${renderResponsiveImage(player.image, `${player.nickname} avatar`)}</div>
       <div class="player-details">
         <span class="player-role">${player.role}</span>
         <h3>${player.nickname}</h3>
@@ -232,7 +240,7 @@ function renderProfile(player) {
     <tr class="${index > 2 ? "result-extra" : ""}" ${index > 2 ? "hidden" : ""}><td>${result.date}</td><td>${result.place}</td><td>${result.tier}</td><td>${result.tournament}</td><td>${result.prize}</td></tr>`).join("");
   profileModalContent.innerHTML = `
     <div class="profile-identity">
-      <div class="profile-avatar"><img src="${player.image}" alt="${player.nickname} profile image"></div>
+      <div class="profile-avatar">${renderResponsiveImage(player.image, `${player.nickname} profile image`, "138px")}</div>
       <span class="player-role">${player.role}</span>
       <h2 id="profile-modal-title">${player.nickname}</h2>
       <p>${player.name}</p>
@@ -255,14 +263,21 @@ function renderProfile(player) {
       </div>
       <button class="show-results" type="button" ${player.achievements.length <= 3 ? "disabled" : ""}>Show all results</button>
     </div>`;
+  history.pushState({ profileModal: true }, "", `#profile-${player.id}`);
+  profileHistoryOpen = true;
   profileModal.hidden = false;
   document.body.classList.add("modal-open");
-  profileModal.querySelector(".profile-modal-close").focus();
+  profileModal.querySelector(".profile-modal-back").focus();
 }
 
-function closeProfile() {
+function closeProfile(fromHistory = false) {
+  if (!fromHistory && profileHistoryOpen) {
+    history.back();
+    return;
+  }
   profileModal.hidden = true;
   document.body.classList.remove("modal-open");
+  profileHistoryOpen = false;
 }
 
 document.querySelector("#roster-list").addEventListener("click", event => {
@@ -282,6 +297,9 @@ profileModal.addEventListener("click", event => {
 });
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && !profileModal.hidden) closeProfile();
+});
+window.addEventListener("popstate", () => {
+  if (!profileModal.hidden) closeProfile(true);
 });
 
 function renderAchievements() {
@@ -317,10 +335,14 @@ document.querySelector("#achievements-list").addEventListener("click", event => 
 });
 
 function updateCounts() {
+  const counts = matches.reduce((result, match) => {
+    result[match.status] += 1;
+    return result;
+  }, { live: 0, upcoming: 0, completed: 0 });
   document.querySelector("#count-all").textContent = matches.length;
-  document.querySelector("#count-live").textContent = matches.filter(m => m.status === "live").length;
-  document.querySelector("#count-upcoming").textContent = matches.filter(m => m.status === "upcoming").length;
-  document.querySelector("#count-completed").textContent = matches.filter(m => m.status === "completed").length;
+  document.querySelector("#count-live").textContent = counts.live;
+  document.querySelector("#count-upcoming").textContent = counts.upcoming;
+  document.querySelector("#count-completed").textContent = counts.completed;
 }
 
 filters.forEach(button => button.addEventListener("click", () => {

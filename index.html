@@ -7,21 +7,32 @@
     <title>Team Electro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+    <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap">
+    </noscript>
+    <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 
 <body>
     <div class="bg-watermark">
-        <img src="assets/team-electro-logo.jpg" alt="Background Logo Glow">
+        <picture>
+            <source srcset="assets/team-electro-logo.webp" type="image/webp">
+            <img src="assets/team-electro-logo.jpg" alt="Background Logo Glow" width="2000" height="2000">
+        </picture>
     </div>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
         <nav class="nav-shell" aria-label="Primary navigation">
             <a class="brand" href="#top" aria-label="Team Electro home">
-                <img src="assets/team-electro-logo.png" alt="Team Electro Logo" class="brand-logo">
+                <picture>
+                    <source srcset="assets/team-electro-logo.webp" type="image/webp">
+                    <img src="assets/team-electro-logo.png" alt="Team Electro Logo" class="brand-logo" width="2000"
+                        height="2000">
+                </picture>
                 <span>TEAM <b>ELECTRO</b></span>
             </a>
             <button class="menu-toggle" aria-expanded="false"
@@ -114,7 +125,12 @@
         <div class="owner-grid">
             <article class="player-card owner-card">
                 <div class="player-art">
-                    <img src="assets/nahian.png" alt="Team Electro owner profile placeholder">
+                    <picture>
+                        <source srcset="assets/nahian-400.webp 400w, assets/nahian-800.webp 800w, assets/nahian.webp 2000w"
+                            sizes="(max-width: 600px) 70vw, 280px" type="image/webp">
+                        <img src="assets/nahian.png" alt="Team Electro owner profile placeholder" loading="lazy"
+                            decoding="async" width="2000" height="2000">
+                    </picture>
                 </div>
                 <div class="player-details">
                     <span class="player-role">OWNER</span>
@@ -138,6 +154,7 @@
     aria-labelledby="profile-modal-title" hidden>
     <div class="profile-modal-backdrop" data-close-profile></div>
     <div class="profile-modal-panel">
+        <button class="profile-modal-back" type="button" data-close-profile aria-label="Back to roster">← Back</button>
         <button class="profile-modal-close" type="button" aria-label="Close player profile"
             data-close-profile>&times;</button>
         <div class="profile-modal-content" id="profile-modal-content"></div>
@@ -164,7 +181,14 @@
         </div>
         <div class="sponsors-grid">
             <article class="sponsor-card sponsor-nubia">
-                <span class="sponsor-mark"><img src="assets/nubia.jpg" alt="Nubia logo"></span>
+                <span class="sponsor-mark">
+                    <picture>
+                        <source srcset="assets/nubia-400.webp 400w, assets/nubia-800.webp 800w, assets/nubia.webp 1254w"
+                            sizes="72px" type="image/webp">
+                        <img src="assets/nubia.jpg" alt="Nubia logo" loading="lazy" decoding="async" width="1254"
+                            height="1254">
+                    </picture>
+                </span>
                 <div><p class="sponsor-label">Official sponsor</p><h3>Nubia Bangladesh</h3></div>
             </article>
             <article class="sponsor-card sponsor-setu">
@@ -202,8 +226,11 @@
 
 <footer>
     <div class="page-width footer-top">
-        <div><a class="brand footer-brand" href="#top"><img src="assets/team-electro-logo.png"
-                    alt="Team Electro logo" class="footer-brand-logo"><span>TEAM <b>ELECTRO</b></span></a>
+        <div><a class="brand footer-brand" href="#top"><picture>
+                    <source srcset="assets/team-electro-logo.webp" type="image/webp">
+                    <img src="assets/team-electro-logo.png" alt="Team Electro logo" class="footer-brand-logo"
+                        loading="lazy" decoding="async" width="2000" height="2000">
+                </picture><span>TEAM <b>ELECTRO</b></span></a>
             <p class="footer-tagline">Built by a fan, for the fans.<br />Archiving every single milestone and epic moment of Team Electro's journey.</p>
         </div>
         <div class="footer-links">
@@ -223,7 +250,7 @@
         <span>Not affiliated with or endorsed by Team Electro.</span><a href="#top">Back to top ↑</a>
     </div>
 </footer>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4" defer></script>
 
 </main>
 </body>

@@ -91,6 +91,11 @@ a {
   object-fit: contain;
 }
 
+.brand > picture,
+.footer-brand > picture {
+    display: contents
+}
+
 .brand b {
     color: var(--cyan)
 }
@@ -609,6 +614,10 @@ a {
     transition: transform .25s ease, box-shadow .25s ease
 }
 
+.player-art picture {
+    display: contents
+}
+
 .player-card:hover .player-art img,
 .player-card:focus-within .player-art img {
     transform: translate(-50%, -50%) scale(1.06);
@@ -734,6 +743,25 @@ body.modal-open {
     line-height: 1
 }
 
+.profile-modal-back {
+    position: absolute;
+    z-index: 2;
+    top: 16px;
+    left: 18px;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font: 700 11px var(--body);
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.profile-modal-back:hover,
+.profile-modal-back:focus {
+    color: var(--cyan)
+}
+
 .profile-modal-close:hover,
 .profile-modal-close:focus {
     color: var(--cyan)
@@ -772,6 +800,10 @@ body.modal-open {
     overflow: hidden;
     padding: 10px;
     background: #071225cc
+}
+
+.profile-avatar picture {
+    display: contents
 }
 
 .profile-identity h2 {
@@ -1137,6 +1169,10 @@ body.modal-open {
     border-radius: 50%
 }
 
+.sponsor-mark picture {
+    display: contents
+}
+
 .sponsor-label {
     color: var(--accent);
     font-size: 9px;
@@ -1310,6 +1346,7 @@ footer {
     color: var(--cyan)
 }
 
+/* Tablet and mobile devices: 800px and below */
 @media(max-width:800px) {
 
     .page-width,
@@ -1317,6 +1354,7 @@ footer {
         width: calc(100% - 40px)
     }
 
+    /* Small tablets and large phones: 620px and below */
     @media(max-width:620px) {
         .profile-modal {
             padding: 12px
@@ -1493,15 +1531,21 @@ footer {
     }
 
     .player-card {
-        min-height: 240px
+        min-height: 300px
     }
 
     .player-art {
-        height: 205px
+        height: 220px
     }
 
     .player-details h3 {
         font-size: 25px
+    }
+
+    .player-details {
+        bottom: 18px;
+        min-height: 52px;
+        justify-content: flex-end
     }
 
     .timeline-entry {
@@ -1535,6 +1579,7 @@ footer {
     }
 }
 
+/* Extra-small phones: 390px and below */
 @media(max-width:390px) {
     .hero-actions {
         align-items: flex-start;
@@ -1547,14 +1592,30 @@ footer {
     }
 
     .player-card {
-        min-height: 220px
+        min-height: 285px
     }
 
     .player-art {
         height: 190px
     }
+
+    .player-art img {
+        width: 108px;
+        height: 108px
+    }
+
+    .player-details {
+        bottom: 15px;
+        left: 10px;
+        right: 10px
+    }
+
+    .player-details h3 {
+        font-size: 22px
+    }
 }
 
+/* Phones and narrow mobile screens: 600px and below */
 @media(max-width:600px) {
     .page-width,
     .nav-shell {
@@ -1647,6 +1708,7 @@ footer {
     }
 }
 
+/* Very small phones: 360px and below */
 @media(max-width:360px) {
     .hero {
         min-height: 760px
@@ -1683,7 +1745,7 @@ footer {
     }
 }
 
-/* Editorial review pass: establish a stronger visual focal point and honest data states. */
+/* Desktop layout: 801px and above; hero text and video stay side-by-side. */
 .hero-visual {
     display: flex;
     position: absolute;
@@ -1893,6 +1955,7 @@ footer {
     }
 }
 
+/* Tablet and mobile video adjustments: 800px and below */
 @media(max-width:800px) {
     .hero-visual {
         right: 20px;
@@ -1943,6 +2006,7 @@ footer {
     }
 }
 
+/* Phone video sizing: 600px and below */
 @media(max-width:600px) {
     .hero-visual {
         right: 16px;
@@ -1955,6 +2019,7 @@ footer {
     }
 }
 
+/* Mobile hero stack: 767px and below; desktop stays side-by-side */
 @media(max-width:767px) {
     .hero {
         min-height: 0;
