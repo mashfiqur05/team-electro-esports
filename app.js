@@ -33,11 +33,118 @@ const matches = [
   }
 ];
 const players = [
+  {
+    id: "safinx",
+    nickname: "SAFINX",
+    name: "Name not published",
+    role: "SUPPORTER",
+    nationality: "Bangladesh",
+    status: "Active",
+    joinDate: "2025-12-03",
+    image: "assets/safin.png",
+    bio: "Active Team Electro player listed on Liquipedia.",
+    winnings: "Not published",
+    social: { facebook: "", youtube: "https://www.youtube.com/@SAFINX7", instagram: "" },
+    achievements: []
+  },
+  {
+    id: "aizenx",
+    nickname: "AIZENX",
+    name: "Name not published",
+    role: "RUSHER",
+    nationality: "Bangladesh",
+    status: "Active",
+    joinDate: "2026-03-03",
+    image: "assets/aizen.png",
+    bio: "Active Team Electro player listed on Liquipedia.",
+    winnings: "Not published",
+    social: { facebook: "https://www.facebook.com/md.alif.133", youtube: "https://www.youtube.com/@ELCAIZEN", instagram: "" },
+    achievements: []
+  },
+  {
+    id: "amin",
+    nickname: "AMIN",
+    name: "Name not published",
+    role: "RUSHER",
+    nationality: "Bangladesh",
+    status: "Active",
+    joinDate: "2026-04-03",
+    image: "assets/amin.png",
+    bio: "Active Team Electro player listed on Liquipedia.",
+    winnings: "Not published",
+    social: { facebook: "https://www.facebook.com/NTnuramin00", youtube: "https://www.youtube.com/@elcaminyt", instagram: "" },
+    achievements: []
+  },
+  {
+    id: "sajidx",
+    nickname: "SAJIDX",
+    name: "Name not published",
+    role: "BOMBER",
+    nationality: "Bangladesh",
+    status: "Active",
+    joinDate: "2026-07-07",
+    image: "assets/sajid.png",
+    bio: "Active Team Electro player listed on Liquipedia.",
+    winnings: "Not published",
+    social: { facebook: "https://www.facebook.com/profile.php?id=61568330271256", youtube: "https://www.youtube.com/@Sajidx.077", instagram: "" },
+    achievements: []
+  },
+  {
+    id: "xiot",
+    nickname: "XIOT",
+    name: "Name not published",
+    role: "SNIPER",
+    nationality: "Bangladesh",
+    status: "Active",
+    joinDate: "Not published",
+    image: "assets/xiot.png",
+    bio: "Active Team Electro player.",
+    winnings: "Not published",
+    social: { facebook: "https://www.facebook.com/mh.chaudhary.641283", youtube: "https://www.youtube.com/@XIOT-m9m", instagram: "" },
+    achievements: []
+  }
 ];
-const achievements = [];
+let achievements = [
+  { date: "2026-10-10", name: "Free Fire Bangladesh Pro League Season 4", description: "Team Electro finished 1st in this B-Tier tournament.", placement: "1ST", tier: "B-TIER", prize: "$2,433" },
+  { date: "2026-10-06", name: "A1 Ignite Pro League 2026", description: "Team Electro finished 7th in this C-Tier tournament.", placement: "7TH", tier: "C-TIER", prize: "$49" },
+  { date: "2026-10-05", name: "Crewx Warchest Pro League Season 2", description: "Team Electro finished 6th in this D-Tier tournament.", placement: "6TH", tier: "D-TIER", prize: "$49" },
+  { date: "2026-09-20", name: "Zong 5G Free Fire Azaadi Series 2026", description: "Team Electro finished 1st in this D-Tier tournament.", placement: "1ST", tier: "D-TIER", prize: "$271" },
+  { date: "2026-09-05", name: "Free Fire World Series - Bangladesh 2026 Fall", description: "Team Electro finished 9th in this A-Tier tournament.", placement: "9TH", tier: "A-TIER", prize: "$814" },
+  { date: "2026-08-23", name: "UEO Pro League 2026 Fall", description: "Team Electro finished 3rd in this D-Tier tournament.", placement: "3RD", tier: "D-TIER", prize: "$123" },
+  { date: "2026-08-22", name: "Crewx Firestorm Series 2026", description: "Team Electro finished 9th in this D-Tier tournament.", placement: "9TH", tier: "D-TIER", prize: "$16" },
+  { date: "2026-08-19", name: "Oraimo Presents Challengers Series 2026", description: "Team Electro finished 10th in this C-Tier tournament.", placement: "10TH", tier: "C-TIER", prize: "$98" },
+  { date: "2026-08-13", name: "FREAK~22 FFWS Scrim 2026 Fall", description: "Team Electro finished 15th in this D-Tier tournament.", placement: "15TH", tier: "D-TIER", prize: "—" },
+  { date: "2026-08-11", name: "Crewx Empires Conference Cup 2026", description: "Team Electro finished 10th in this D-Tier tournament.", placement: "10TH", tier: "D-TIER", prize: "—" },
+  { date: "2026-08-10", name: "UEO Showdown Season 6", description: "Team Electro finished 4th in this D-Tier tournament.", placement: "4TH", tier: "D-TIER", prize: "$49" },
+  { date: "2026-08-06", name: "Vertex Empire Showdown 2026", description: "Team Electro finished 11th in this D-Tier tournament.", placement: "11TH", tier: "D-TIER", prize: "—" },
+  { date: "2026-08-03", name: "Tahiax Esports Presents - FFWS Spring Returns 2026", description: "Team Electro finished 2nd in this D-Tier tournament.", placement: "2ND", tier: "D-TIER", prize: "$73" },
+  { date: "2026-08-01", name: "Free Fire Bangladesh Pro League Season 3", description: "Team Electro finished 6th in this B-Tier tournament.", placement: "6TH", tier: "B-TIER", prize: "$447" },
+  { date: "2026-07-31", name: "Bangladesh Pro Legaue Gateway Season 3", description: "Team Electro finished 8th in this D-Tier tournament.", placement: "8TH", tier: "D-TIER", prize: "—" },
+  { date: "2026-07-26", name: "UEO Championship Season 13", description: "Team Electro finished 4th in this D-Tier tournament.", placement: "4TH", tier: "D-TIER", prize: "$49" },
+  { date: "2026-07-26", name: "UEO Battlefield Championship 2025", description: "Team Electro finished 12th in this D-Tier tournament.", placement: "12TH", tier: "D-TIER", prize: "—" },
+  { date: "2026-06-06", name: "Free Fire World Series - Bangladesh 2026 Spring", description: "Team Electro finished 6th in this A-Tier tournament.", placement: "6TH", tier: "A-TIER", prize: "$1,629" },
+  { date: "2026-05-26", name: "Crewx Goats of Bangladesh 2026", description: "Team Electro finished 9th in this D-Tier tournament.", placement: "9TH", tier: "D-TIER", prize: "$16" },
+  { date: "2026-05-15", name: "KSA Legacy of Fire 2026", description: "Team Electro finished 11th in this D-Tier tournament.", placement: "11TH", tier: "D-TIER", prize: "—" },
+  { date: "2026-05-14", name: "UEO Grand Championship Season 6", description: "Team Electro finished 7th in this D-Tier tournament.", placement: "7TH", tier: "D-TIER", prize: "$20" },
+  { date: "2026-05-09", name: "Legacy Syndicate Global Spring", description: "Team Electro finished 22nd in this D-Tier tournament.", placement: "22ND", tier: "D-TIER", prize: "—" },
+  { date: "2026-05-04", name: "UEO Snowstorm Survival Championship Season 4", description: "Team Electro finished 10th in this D-Tier tournament.", placement: "10TH", tier: "D-TIER", prize: "$16" },
+  { date: "2026-04-27", name: "VLife Esports - FFWS BD-NP Spring Gateway 2026", description: "Team Electro finished 6th in this D-Tier tournament.", placement: "6TH", tier: "D-TIER", prize: "$16" },
+  { date: "2026-04-24", name: "Free Fire Bangladesh Pro League Season 2", description: "Team Electro finished 12th in this B-Tier tournament.", placement: "12TH", tier: "B-TIER", prize: "$163" },
+  { date: "2026-03-15", name: "UEO Championship Season 12", description: "Team Electro finished 2nd in this D-Tier tournament.", placement: "2ND", tier: "D-TIER", prize: "$82" },
+  { date: "2026-03-05", name: "UEO Invasion Battle League Season 9", description: "Team Electro finished 3rd in this D-Tier tournament.", placement: "3RD", tier: "D-TIER", prize: "$82" },
+  { date: "2025-12-30", name: "UEO Survivors Rumble 2025", description: "Team Electro finished 4th in this D-Tier tournament.", placement: "4TH", tier: "D-TIER", prize: "$49" },
+  { date: "2025-10-08", name: "Rise Of Nations 2025", description: "Team Electro finished 6th in this C-Tier tournament.", placement: "6TH", tier: "C-TIER", prize: "$49" },
+  { date: "2025-08-21", name: "Lidoma Endless Series 2025 - South Asia Regional Championship", description: "Team Electro finished 24th in this C-Tier tournament.", placement: "24TH", tier: "C-TIER", prize: "—" },
+  { date: "2025-06-20", name: "Free Fire Bangladesh Championship 2025", description: "Team Electro finished 4th in this A-Tier tournament.", placement: "4TH", tier: "A-TIER", prize: "$4,910" },
+  { date: "2025-06-17", name: "Lidoma Endless Series 2025 - Bangladesh Open Regional Cups", description: "Team Electro finished 5th in this D-Tier tournament.", placement: "5TH", tier: "D-TIER", prize: "$25" },
+  { date: "2025-05-26", name: "Liquid Esports - Bhaishakhi Face Off 1432", description: "Team Electro finished 11th in this D-Tier tournament.", placement: "11TH", tier: "D-TIER", prize: "—" },
+  { date: "2021-03-19", name: "Free Fire Bangladesh Championship Spring 2021", description: "Team Electro finished 12th in this A-Tier tournament.", placement: "12TH", tier: "A-TIER", prize: "$213" }
+];
 
 const matchList = document.querySelector("#matches-list");
 const filters = document.querySelectorAll(".filter");
+const profileModal = document.querySelector("#profile-modal");
+const profileModalContent = document.querySelector("#profile-modal-content");
 
 function renderMatches(filter = "all") {
   const visible = matches.filter(match => filter === "all" || match.status === filter);
@@ -62,20 +169,129 @@ function renderMatches(filter = "all") {
 function renderRoster() {
   const target = document.querySelector("#roster-list");
   if (!players.length) {
-    target.innerHTML = `<div class="data-empty roster-empty"><div class="empty-index">ROSTER / 001</div><div><span class="empty-icon">✦</span><h3>Names worth waiting for.</h3><p>Verified player profiles, roles, and approved portraits will be published here when confirmed by the community.</p></div><span class="empty-state-label">ROSTER DATA PENDING</span></div>`;
+    target.innerHTML = `<div class="data-empty roster-empty"><div class="empty-index">ROSTER / 001</div><div><span class="empty-icon">✦</span><h3>The lineup is being verified.</h3><p>Liquipedia currently lists no active Team Electro players. Verified player profiles, roles, and approved portraits will be published here when confirmed.</p></div><span class="empty-state-label">ROSTER DATA PENDING</span></div>`;
     return;
   }
   target.innerHTML = players.map(player => `
     <article class="player-card">
-      <div class="player-art"><span class="player-number">${player.number}</span></div>
-      <div class="player-details"><span class="player-role">${player.role}</span><h3>${player.nickname}</h3><div class="unverified">${player.note}</div></div>
+      <div class="player-art"><img src="${player.image}" alt="${player.nickname} avatar"></div>
+      <div class="player-details">
+        <span class="player-role">${player.role}</span>
+        <h3>${player.nickname}</h3>
+        <div class="player-socials" aria-label="${player.nickname} social links">
+          ${renderSocialLink(player.social.facebook, "FB", "Facebook")}
+          ${renderSocialLink(player.social.youtube, "YT", "YouTube")}
+          ${renderSocialLink(player.social.instagram, "IG", "Instagram")}
+        </div>
+        <button class="profile-button" type="button" data-profile-id="${player.id}">View profile</button>
+      </div>
     </article>`).join("");
 }
 
-function renderHistory() {
-  const target = document.querySelector("#history-list");
-  target.innerHTML = achievements.length ? achievements.map(item => `<article class="timeline-entry"><div class="timeline-date">${item.date}</div><div><h3>${item.name}</h3><p>${item.description}</p></div><div class="placement">${item.placement}<small>${item.tier}</small></div></article>`).join("") : `<div class="empty-state"><span class="empty-icon">✦</span><h3>The archive is being verified.</h3><p>Competitive results will appear once confirmed from reliable public sources.</p></div>`;
+function renderSocialLink(url, label, platform) {
+  const icons = {
+    Facebook: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 1.9-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg>',
+    YouTube: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8ZM10 15.3V8.7l5.7 3.3-5.7 3.3Z"/></svg>',
+    Instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" class="social-icon-fill"/></svg>'
+  };
+  const icon = icons[platform];
+  const fallbackUrls = {
+    Facebook: "https://www.facebook.com/",
+    YouTube: "https://www.youtube.com/",
+    Instagram: "https://www.instagram.com/"
+  };
+  const profileUrl = url || fallbackUrls[platform];
+  return `<a class="${url ? "" : "social-unavailable"}" href="${profileUrl}" target="_blank" rel="noreferrer" aria-label="${platform} profile">${icon}</a>`;
 }
+
+function renderProfile(player) {
+  const rows = player.achievements.map((result, index) => `
+    <tr class="${index > 2 ? "result-extra" : ""}" ${index > 2 ? "hidden" : ""}><td>${result.date}</td><td>${result.place}</td><td>${result.tier}</td><td>${result.tournament}</td><td>${result.prize}</td></tr>`).join("");
+  profileModalContent.innerHTML = `
+    <div class="profile-identity">
+      <div class="profile-avatar"><img src="${player.image}" alt="${player.nickname} profile image"></div>
+      <span class="player-role">${player.role}</span>
+      <h2 id="profile-modal-title">${player.nickname}</h2>
+      <p>${player.name}</p>
+      <dl class="profile-meta">
+        <div><dt>Nationality</dt><dd><span aria-hidden="true">🇧🇩</span> ${player.nationality}</dd></div>
+        <div><dt>Status</dt><dd class="profile-active">${player.status}</dd></div>
+        <div><dt>Role</dt><dd>${player.role}</dd></div>
+        <div><dt>Joined</dt><dd>${player.joinDate}</dd></div>
+      </dl>
+    </div>
+    <div class="profile-data">
+      <p class="profile-bio">${player.bio}</p>
+      <div class="winnings-box"><span>Total winnings</span><strong>${player.winnings}</strong></div>
+      <div class="results-heading"><h3>Achievements</h3><span>${player.achievements.length} results</span></div>
+      <div class="results-table-wrap">
+        <table class="results-table">
+          <thead><tr><th>Date</th><th>Place</th><th>Tier</th><th>Tournament</th><th>Prize</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+      <button class="show-results" type="button" ${player.achievements.length <= 3 ? "disabled" : ""}>Show all results</button>
+    </div>`;
+  profileModal.hidden = false;
+  document.body.classList.add("modal-open");
+  profileModal.querySelector(".profile-modal-close").focus();
+}
+
+function closeProfile() {
+  profileModal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+document.querySelector("#roster-list").addEventListener("click", event => {
+  const button = event.target.closest("[data-profile-id]");
+  if (button) {
+    const player = players.find(item => item.id === button.dataset.profileId);
+    if (player) renderProfile(player);
+  }
+});
+profileModal.addEventListener("click", event => {
+  if (event.target.matches("[data-close-profile]")) closeProfile();
+  if (event.target.matches(".show-results")) {
+    profileModal.querySelectorAll(".result-extra").forEach(row => { row.hidden = false; });
+    event.target.textContent = "All results shown";
+    event.target.disabled = true;
+  }
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && !profileModal.hidden) closeProfile();
+});
+
+function renderAchievements() {
+  const target = document.querySelector("#achievements-list");
+  target.innerHTML = achievements.length ? `
+    <div class="results-table-wrap">
+      <table class="achievement-table">
+        <thead>
+          <tr><th>Date</th><th>Place</th><th>Tier</th><th>Tournament</th><th>Prize</th></tr>
+        </thead>
+        <tbody>
+          ${achievements.map((item, index) => `<tr class="${index >= 15 ? "achievement-extra" : ""}" ${index >= 15 ? "hidden" : ""}><td>${item.date}</td><td><span class="placement-badge ${getPlacementClass(item.placement)}">${item.placement}</span></td><td>${item.tier}</td><td>${item.name}</td><td>${item.prize}</td></tr>`).join("")}
+        </tbody>
+      </table>
+      ${achievements.length > 15 ? '<button class="show-achievements" type="button">Show all results</button>' : ""}
+    </div>` : `<div class="empty-state"><span class="empty-icon">✦</span><h3>No achievements published yet.</h3><p>Liquipedia currently has no verified Team Electro achievements. Confirmed tournament results will appear here as they are published.</p></div>`;
+}
+
+function getPlacementClass(placement) {
+  const place = Number.parseInt(placement, 10);
+  if (place === 1) return "placement-first";
+  if (place === 2) return "placement-second";
+  if (place === 3) return "placement-third";
+  return "placement-other";
+}
+
+document.querySelector("#achievements-list").addEventListener("click", event => {
+  if (!event.target.matches(".show-achievements")) return;
+  const expanded = event.target.dataset.expanded === "true";
+  document.querySelectorAll("#achievements-list .achievement-extra").forEach(row => { row.hidden = expanded; });
+  event.target.dataset.expanded = String(!expanded);
+  event.target.textContent = expanded ? "Show all results" : "Show fewer results";
+});
 
 function updateCounts() {
   document.querySelector("#count-all").textContent = matches.length;
@@ -94,4 +310,4 @@ const nav = document.querySelector(".site-nav");
 menuButton.addEventListener("click", () => { const open = nav.classList.toggle("open"); menuButton.setAttribute("aria-expanded", String(open)); });
 nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => { nav.classList.remove("open"); menuButton.setAttribute("aria-expanded", "false"); }));
 
-renderMatches(); renderRoster(); renderHistory(); updateCounts();
+renderMatches(); renderRoster(); renderAchievements(); updateCounts();

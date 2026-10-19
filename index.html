@@ -27,7 +27,7 @@
             <button class="menu-toggle" aria-expanded="false"
                 aria-controls="site-nav"><span></span><span></span><span></span><em>Menu</em></button>
             <div id="site-nav" class="site-nav">
-                <a href="#matches">Matches</a><a href="#roster">Roster</a><a href="#history">History</a><a
+                <a href="#matches">Matches</a><a href="#roster">Roster</a><a href="#achievements">Achievements</a><a
                     href="#news">News</a>
                 <a class="nav-cta" href="#community">Join the community <span>↗</span></a>
             </div>
@@ -93,25 +93,33 @@
         <div class="section-heading light">
             <div>
                 <p class="eyebrow">ROSTER</p>
-                <h2>CONTROL THE <em>CHAOS.</em></h2>
+                <h2>KISHORE GANG <em>PURE CHAOS.</em></h2>
             </div>
-            <p class="section-intro">The names behind the electricity. Player information is published only when
-                verified by the community.</p>
+            <p class="section-intro">Meet the warriors behind the spark. Built for precision, power, and dominating the arena.</p>
         </div>
         <div class="roster-grid" id="roster-list"></div>
     </div>
 </section>
 
-<section class="section history-section page-width" id="history">
+<div class="profile-modal" id="profile-modal" role="dialog" aria-modal="true"
+    aria-labelledby="profile-modal-title" hidden>
+    <div class="profile-modal-backdrop" data-close-profile></div>
+    <div class="profile-modal-panel">
+        <button class="profile-modal-close" type="button" aria-label="Close player profile"
+            data-close-profile>&times;</button>
+        <div class="profile-modal-content" id="profile-modal-content"></div>
+    </div>
+</div>
+
+<section class="section achievements-section page-width" id="achievements">
     <div class="section-heading">
         <div>
-            <p class="eyebrow">COMPETITIVE HISTORY</p>
-            <h2>EVERY <em>IMPACT</em> COUNTS.</h2>
+            <p class="eyebrow">ACHIEVEMENTS</p>
+            <h2>THE <em>RECORD</em> SO FAR.</h2>
         </div>
-        <p class="section-intro">A living archive of verified results. No rumors, no invented wins — just the
-            record.</p>
+        <p class="section-intro">A documented history of top placements, Booyahs, and official tournament earnings.</p>
     </div>
-    <div class="timeline" id="history-list"></div>
+    <div class="timeline" id="achievements-list"></div>
 </section>
 
 <section class="news-section" id="news">
@@ -141,7 +149,7 @@
         <div class="footer-links">
             <div>
                 <p class="footer-label">Explore</p><a href="#matches">Match center</a><a href="#roster">Roster</a><a
-                    href="#history">History</a>
+                    href="#achievements">Achievements</a>
             </div>
             <div>
                 <p class="footer-label">Connect</p><a href="https://liquipedia.net/freefire/Team_Electro"
