@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Electro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="bg-watermark">
+        <img src="assets/team-electro-logo.jpg" alt="Background Logo Glow">
+    </div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <nav class="nav-shell" aria-label="Primary navigation">
+            <a class="brand" href="#top" aria-label="Team Electro home">
+                <img src="assets/team-electro-logo.png" alt="Team Electro Logo" class="brand-logo">
+                <span>TEAM <b>ELECTRO</b></span>
+            </a>
+            <button class="menu-toggle" aria-expanded="false"
+                aria-controls="site-nav"><span></span><span></span><span></span><em>Menu</em></button>
+            <div id="site-nav" class="site-nav">
+                <a href="#matches">Matches</a><a href="#roster">Roster</a><a href="#history">History</a><a
+                    href="#news">News</a>
+                <a class="nav-cta" href="#community">Join the community <span>↗</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero" id="top">
+            <div class="hero-noise"></div>
+            <div class="hero-lightning" aria-hidden="true"></div>
+            <div class="hero-content page-width">
+                <p class="eyebrow"><span class="pulse"></span> BANGLADESH · FREE FIRE</p>
+                <h1>BUILT<br /><span>TO SHOCK.</span></h1>
+                <p class="hero-copy">An unofficial website built by fans, for the fans—tracking every tournament, match,
+                    and milestone of Team Electro.</p>
+                <div class="hero-actions"><a class="button button-primary" href="#matches">Explore the match center
+                        <span>↗</span></a><a class="text-link" href="#roster">Meet the roster <span>→</span></a></div>
+            </div>
+
+            <!-- Video Player Section (Horizontal 16:9 Format) -->
+            <div class="hero-visual" aria-label="Mic Check YouTube Video">
+                <iframe class="hero-video-iframe" src="https://www.youtube.com/embed/XZMgSwHgsz8"
+                    title="Mic Check ft. Nubia Electro | FFBPL S4 Champions" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <!--  -->
+<div class="hero-side-note"><span>◆</span> AN UNOFFICIAL WEBSITE <span>◆</span> <!--EST. 2024-->
+</div>
+<div class="hero-scroll">SCROLL TO DISCOVER <span>↓</span></div>
+</section>
+
+<section class="ticker" aria-label="Team information">
+    <div class="ticker-track"><span>TEAM ELECTRO</span><i>✦</i><span>FREE FIRE
+            ESPORTS</span><i>✦</i><span>BANGLADESH</span><i>✦</i><span>SHOCK THE COMPETITION</span><i>✦</i><span>TEAM
+            ELECTRO</span><i>✦</i><span>FREE FIRE ESPORTS</span></div>
+</section>
+
+
+
+<section class="section matches-section page-width" id="matches">
+    <div class="section-heading">
+                <div>
+                    <p class="eyebrow">01 / MATCH CENTER</p>
+                    <h2>THE NEXT <em>DROP.</em></h2>
+                </div>
+                <p class="section-intro">Follow every confirmed fixture and result. Times are shown in Bangladesh
+                    Standard Time (UTC+6).</p>
+            </div>
+            <div class="match-toolbar" role="tablist" aria-label="Match filters">
+                <button class="filter active" role="tab" aria-selected="true" data-filter="all">All matches <span
+                        id="count-all">0</span></button>
+                <button class="filter" role="tab" aria-selected="false" data-filter="upcoming">Upcoming <span
+                        id="count-upcoming">0</span></button>
+                <button class="filter" role="tab" aria-selected="false" data-filter="completed">Completed <span
+                        id="count-completed">0</span></button>
+            </div>
+            <div class="matches-grid" id="matches-list"></div>
+        </section>
+
+        <section class="roster-section" id="roster">
+            <div class="page-width">
+                <div class="section-heading light">
+                    <div>
+                        <p class="eyebrow">02 / THE LINEUP</p>
+                        <h2>CONTROL THE <em>CHAOS.</em></h2>
+                    </div>
+                    <p class="section-intro">The names behind the electricity. Player information is published only when
+                        verified by the community.</p>
+                </div>
+                <div class="roster-grid" id="roster-list"></div>
+            </div>
+        </section>
+
+        <section class="section history-section page-width" id="history">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">03 / COMPETITIVE HISTORY</p>
+                    <h2>EVERY <em>IMPACT</em> COUNTS.</h2>
+                </div>
+                <p class="section-intro">A living archive of verified results. No rumors, no invented wins — just the
+                    record.</p>
+            </div>
+            <div class="timeline" id="history-list"></div>
+        </section>
+
+        <section class="news-section" id="news">
+            <div class="page-width">
+                <div class="section-heading light">
+                    <div>
+                        <p class="eyebrow">04 / FROM THE HUB</p>
+                        <h2>THE LATEST <em>CHARGE.</em></h2>
+                    </div>
+                    <p class="section-intro">No published updates yet. Check back when the community has a story worth
+                        sharing.</p>
+                </div>
+                <div class="empty-state"><span class="empty-icon">✦</span>
+                    <h3>The newsroom is warming up.</h3>
+                    <p>Verified announcements and match-day reports will appear here.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="community">
+        <div class="page-width footer-top">
+            <div><a class="brand footer-brand" href="#top"><span class="brand-mark"
+                        aria-hidden="true"><i></i><i></i><i></i></span><span>TEAM <b>ELECTRO</b></span></a>
+                <p class="footer-tagline">A fan-built signal for the Bangladeshi<br />Free Fire community.</p>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <p class="footer-label">Explore</p><a href="#matches">Match center</a><a href="#roster">Roster</a><a
+                        href="#history">History</a>
+                </div>
+                <div>
+                    <p class="footer-label">Connect</p><a href="https://liquipedia.net/freefire/Team_Electro"
+                        target="_blank" rel="noreferrer">Liquipedia ↗</a><a
+                        href="https://www.facebook.com/search/top?q=team%20electro%20esports" target="_blank"
+                        rel="noreferrer">Facebook search ↗</a><a href="mailto:hello@teamelectro.fan">Contact hub ↗</a>
+                </div>
+            </div>
+        </div>
+        <div class="page-width footer-bottom"><span>© 2024 Team Electro Fan Hub</span><span>Not affiliated with or
+                endorsed by Team Electro.</span><a href="#top">Back to top ↑</a></div>
+    </footer>
+    <script src="app.js?v=3"></script>
+
+    </main>
+</body>
+
+</html>
