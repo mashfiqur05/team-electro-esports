@@ -780,8 +780,11 @@ body.modal-open {
 }
 
 .profile-avatar {
+    position: relative;
     width: 176px;
     height: 176px;
+    aspect-ratio: 1;
+    box-sizing: border-box;
     display: grid;
     place-items: center;
     border: 2px solid var(--cyan);
@@ -792,18 +795,26 @@ body.modal-open {
 }
 
 .profile-avatar img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 138px;
     height: 138px;
+    aspect-ratio: 1;
     object-fit: contain;
     border: 2px solid var(--cyan);
     border-radius: 50%;
     overflow: hidden;
     padding: 10px;
-    background: #071225cc
+    background: #071225cc;
+    transform: translate(-50%, -50%)
 }
 
 .profile-avatar picture {
-    display: contents
+    position: absolute;
+    inset: 0;
+    display: block;
+    pointer-events: none
 }
 
 .profile-identity h2 {
@@ -1152,10 +1163,13 @@ body.modal-open {
 }
 
 .sponsor-mark {
+    position: relative;
     display: grid;
     place-items: center;
     width: 72px;
     height: 72px;
+    aspect-ratio: 1;
+    box-sizing: border-box;
     border: 1px solid var(--accent);
     border-radius: 50%;
     color: var(--accent);
@@ -1163,14 +1177,22 @@ body.modal-open {
 }
 
 .sponsor-mark img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 52px;
     height: 52px;
+    aspect-ratio: 1;
     object-fit: contain;
-    border-radius: 50%
+    border-radius: 50%;
+    transform: translate(-50%, -50%)
 }
 
 .sponsor-mark picture {
-    display: contents
+    position: absolute;
+    inset: 0;
+    display: block;
+    pointer-events: none
 }
 
 .sponsor-label {

@@ -1,35 +1,53 @@
 const matches = [
   {
-    date: "20",
+    date: "19",
     month: "OCT",
     tournament: "Bangladesh Free Fire Pro League S4",
-    status: "live",
+    startsAt: "2026-10-19T20:00:00+06:00",
+    endsAt: "2026-10-19T22:00:00+06:00",
     time: "8:00 PM",
-    livestream: "https://www.youtube.com/"
+    livestream: "https://www.youtube.com/watch?v=ayUsvm7HIqE",
+    videoId: "ayUsvm7HIqE"
   },
   {
     date: "25",
     month: "OCT",
-    tournament: "Bangladesh Free Fire League S#",
-    status: "upcoming",
+    tournament: "FF Asian Gateway II — K.O. Stage Day 4",
+    startsAt: "2026-10-25T20:00:00+06:00",
+    endsAt: "2026-10-25T22:00:00+06:00",
     time: "8:00 PM",
-    livestream: "https://www.youtube.com/"
+    livestream: "https://www.youtube.com/watch?v=mRoRautAB3M",
+    videoId: "mRoRautAB3M"
   },
   {
     date: "19",
     month: "OCT",
-    tournament: "FFWS Gateway",
-    status: "completed",
+    tournament: "FF Asian Gateway II — K.O. Stage Day 2",
+    startsAt: "2026-10-19T19:30:00+06:00",
+    endsAt: "2026-10-19T21:00:00+06:00",
     time: "7:30 PM",
-    livestream: "https://www.youtube.com/"
+    livestream: "https://www.youtube.com/watch?v=jVvbNEBIBc0",
+    videoId: "jVvbNEBIBc0"
   },
   {
     date: "12",
     month: "OCT",
-    tournament: "ASIA Invitational",
-    status: "completed",
+    tournament: "FF Asian Gateway II — K.O. Stage Day 1",
+    startsAt: "2026-10-12T20:00:00+06:00",
+    endsAt: "2026-10-12T22:00:00+06:00",
     time: "8:00 PM",
-    livestream: "https://www.youtube.com/"
+    livestream: "https://www.youtube.com/watch?v=xkpZ6kk0BBA",
+    videoId: "xkpZ6kk0BBA"
+  },
+  {
+    date: "—",
+    month: "TBD",
+    tournament: "EEE Mega Clash — Tier 1 Final",
+    startsAt: "",
+    endsAt: "",
+    time: "See livestream",
+    livestream: "https://www.youtube.com/live/ayoca0bk-8w",
+    videoId: "ayoca0bk-8w"
   }
 ];
 const players = [
@@ -174,6 +192,44 @@ const filters = document.querySelectorAll(".filter");
 const profileModal = document.querySelector("#profile-modal");
 const profileModalContent = document.querySelector("#profile-modal-content");
 let profileHistoryOpen = false;
+let currentMatchFilter = "all";
+
+function getMatchStatus(match, now = new Date()) {
+  if (!match.startsAt || !match.endsAt) return match.status || "upcoming";
+  const start = Date.parse(match.startsAt);
+  const end = Date.parse(match.endsAt);
+  if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start) {
+    console.error(`Invalid match schedule for "${match.tournament}".`);
+    return "upcoming";
+  }
+  const currentTime = now.getTime();
+  if (currentTime < start) return "upcoming";
+  if (currentTime < end) return "live";
+  return "completed";
+}
+
+function updateMatchStatuses() {
+  const now = new Date();
+  matches.forEach(match => {
+    match.status = getMatchStatus(match, now);
+  });
+}
+
+async function refreshYouTubeStatuses() {
+  const videoIds = matches.map(match => match.videoId).filter(Boolean);
+  if (!videoIds.length) return;
+  try {
+    const response = await fetch(`/api/youtube-status?ids=${encodeURIComponent(videoIds.join(","))}`);
+    if (!response.ok) throw new Error(`Status endpoint returned ${response.status}.`);
+    const { statuses } = await response.json();
+    matches.forEach(match => {
+      if (statuses[match.videoId]) match.status = statuses[match.videoId];
+    });
+    renderMatches(currentMatchFilter, false);
+  } catch (error) {
+    console.error("Could not refresh YouTube match statuses:", error);
+  }
+}
 
 function renderResponsiveImage(source, alt, sizes = "(max-width: 600px) 50vw, 280px") {
   const webpSource = source.replace(/\.(png|jpe?g)$/i, ".webp");
@@ -182,7 +238,10 @@ function renderResponsiveImage(source, alt, sizes = "(max-width: 600px) 50vw, 28
   return `<picture><source srcset="${srcset}" sizes="${sizes}" type="image/webp"><img src="${source}" alt="${alt}" loading="lazy" decoding="async" width="2000" height="2000"></picture>`;
 }
 
-function renderMatches(filter = "all") {
+function renderMatches(filter = "all", refreshTime = true) {
+  currentMatchFilter = filter;
+  if (refreshTime) updateMatchStatuses();
+  updateCounts();
   const visible = matches.filter(match => filter === "all" || match.status === filter);
   if (!visible.length) {
     const isAllMatches = filter === "all";
@@ -287,6 +346,17 @@ document.querySelector("#roster-list").addEventListener("click", event => {
     if (player) renderProfile(player);
   }
 });
+
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) {
+    renderMatches(currentMatchFilter);
+    refreshYouTubeStatuses();
+  }
+});
+setInterval(() => {
+  renderMatches(currentMatchFilter);
+  refreshYouTubeStatuses();
+}, 60 * 1000);
 profileModal.addEventListener("click", event => {
   if (event.target.matches("[data-close-profile]")) closeProfile();
   if (event.target.matches(".show-results")) {
@@ -356,3 +426,4 @@ menuButton.addEventListener("click", () => { const open = nav.classList.toggle("
 nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => { nav.classList.remove("open"); menuButton.setAttribute("aria-expanded", "false"); }));
 
 renderMatches(); renderRoster(); renderAchievements(); updateCounts();
+refreshYouTubeStatuses();
