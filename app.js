@@ -211,7 +211,9 @@ function getMatchStatus(match, now = new Date()) {
 function updateMatchStatuses() {
   const now = new Date();
   matches.forEach(match => {
-    match.status = getMatchStatus(match, now);
+    if (match.statusSource !== "youtube") {
+      match.status = getMatchStatus(match, now);
+    }
   });
 }
 
@@ -223,7 +225,10 @@ async function refreshYouTubeStatuses() {
     if (!response.ok) throw new Error(`Status endpoint returned ${response.status}.`);
     const { statuses } = await response.json();
     matches.forEach(match => {
-      if (statuses[match.videoId]) match.status = statuses[match.videoId];
+      if (statuses[match.videoId]) {
+        match.status = statuses[match.videoId];
+        match.statusSource = "youtube";
+      }
     });
     renderMatches(currentMatchFilter, false);
   } catch (error) {
